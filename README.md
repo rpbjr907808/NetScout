@@ -196,9 +196,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 
-Built with ☕ by [Your Name]
+Built with ☕ by RB
 
 ## 🙏 Acknowledgments
 
 - Inspired by network administration tools like nmap and Angry IP Scanner
-- Built as part of a career transition project from programming to network engineering
+- Built as part of a career transition project from programming to  either network engineering or cloud engineering 
