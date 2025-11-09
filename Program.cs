@@ -29,8 +29,8 @@ class Program
             Console.WriteLine("│ 4. View Device Details                 │");
             Console.WriteLine("│ 5. Add Notes to Device                 │");
             Console.WriteLine("│ 6. Delete Device                       │");
-            Console.WriteLine("│ 7. Exit                                │");
-            Console.WriteLine("└────────────────────────────────────────┘");
+            Console.WriteLine("│ 7. Export to CSV                       │");
+            Console.WriteLine("│ 8. Exit                                │");
             Console.Write("\nSelect option: ");
 
             var choice = Console.ReadLine();
@@ -56,11 +56,11 @@ class Program
                     await DeleteDeviceAsync(repository);
                     break;
                 case "7":
-                    Console.WriteLine("\nExiting NetScout. Goodbye!");
-                    return;
-                default:
-                    Console.WriteLine("\n[!] Invalid option. Please try again.");
+                    await ExportToCsvAsync(repository);
                     break;
+                case "8":
+                    Console.WriteLine("\nExiting Netscout. Goodbye!");
+                    return;
             }
         }
     }
@@ -256,5 +256,31 @@ class Program
             await repository.DeleteDeviceAsync(ipAddress);
             Console.WriteLine("[✓] Device deleted successfully.");
         }
+    }
+
+    static async Task ExportToCsvAsync(DeviceRepository repository)
+    {
+        var devices = await repository.GetAllDevicesAsync();
+        
+        if (devices.Count == 0)
+        {
+            Console.WriteLine("\n[!] No devices to export. Run a scan first.");
+            return;
+        }
+        
+        Console.Write("\nEnter filename (without .csv): ");
+        var filename = Console.ReadLine();
+        
+        if (string.IsNullOrEmpty(filename))
+        {
+            filename = $"netscout_export_{DateTime.Now:yyyyMMdd_HHmmss}";
+        }
+        
+        var filepath = $"{filename}.csv";
+        
+        var exportService = new ExportService();
+        await exportService.ExportToCsvAsync(devices, filepath);
+        
+        Console.WriteLine($"[✓] File saved! You can open it with Excel or any spreadsheet app.");
     }
 }
