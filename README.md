@@ -1,6 +1,7 @@
 # NetScout
 
-A powerful network scanning and device management tool built in C# for network administrators and security professionals.
+A network scanning and device management tool built in C#
+This is a personal project to enhance  my programming skills and also to gain networking skills 
 
 ## 🚀 Features
 
