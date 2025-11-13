@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "IpAddress": "192.168.40.254",
+    "HostName": "DESKTOP-16I8DRK.ht.home",
+    "MacAddress": null,
+    "Status": "Online",
+    "FirstSeen": "2025-11-04T06:34:45.2758531",
+    "LastSeen": "2025-11-04T06:34:45.2761567",
+    "DeviceType": null,
+    "Manufacturer": null,
+    "Notes": null,
+    "OpenPorts": [
+      {
+        "Id": 1,
+        "NetworkDeviceId": 1,
+        "PortNumber": 445,
+        "ServiceName": "SMB",
+        "Protocol": "TCP",
+        "DiscoveredAt": "2025-11-04T06:34:51.8721124",
+        "NetworkDevice": null
+      },
+      {
+        "Id": 2,
+        "NetworkDeviceId": 1,
+        "PortNumber": 5432,
+        "ServiceName": "PostgreSQL",
+        "Protocol": "TCP",
+        "DiscoveredAt": "2025-11-04T06:34:51.8721297",
+        "NetworkDevice": null
+      }
+    ]
+  }
+]
